@@ -4,6 +4,14 @@
 # Los calculos se realizan en el modulo areas_geometricas.
 # ----------------------------------------------------------
 import areas_geometricas # Importamos nuestro modulo propio.
+def leer(texto, tipo):
+    while True:
+        try:
+            dato = tipo(input(texto))
+        except ValueError:
+            print(f"No es de tipo {tipo}")
+        else:
+            return dato
 def mostrar_menu():
     """Muestra por pantalla las opciones disponibles."""
     print("\n===== CALCULADORA GEOMETRICA =====")
@@ -17,21 +25,21 @@ def main():
     while True:
         mostrar_menu()
         # input() obtiene texto; int() lo convierte a entero.
-        opcion = int(input("Selecciona una opcion: "))
+        opcion = leer("Selecciona una opcion: ", int) # int(input("Selecciona una opcion: "))
         if opcion == 1:
             # Solicitamos las dos dimensiones del rectangulo.
-            base = float(input("Introduce la base: "))
-            altura = float(input("Introduce la altura: "))
+            base = leer("Introduce la base: ", float) # float(input("Introduce la base: "))
+            altura = leer("Introduce la altura: ",float) # float(input("Introduce la altura: "))
             resultado = areas_geometricas.area_rectangulo(base, altura)
             print(f"El area del rectangulo es: {resultado:.2f}")
         elif opcion == 2:
             # Para el cuadrado solo necesitamos conocer el lado.
-            lado = float(input("Introduce el lado: "))
+            lado = leer("Introduce el lado: ",float) # float(input("Introduce el lado: "))
             resultado = areas_geometricas.area_cuadrado(lado)
             print(f"El area del cuadrado es: {resultado:.2f}")
         elif opcion == 3:
             # Para el circulo solicitamos el radio.
-            radio = float(input("Introduce el radio: "))
+            radio = leer("Introduce el radio: ",float) # float(input("Introduce el radio: "))
             resultado = areas_geometricas.area_circulo(radio)
             print(f"El area del circulo es: {resultado:.2f}")
         elif opcion == 0:
