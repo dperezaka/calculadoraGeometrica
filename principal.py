@@ -8,8 +8,12 @@ def leer(texto, tipo):
     while True:
         try:
             dato = tipo(input(texto))
+            if dato < 0:
+                raise TypeError
         except ValueError:
             print(f"No es de tipo {tipo}")
+        except TypeError:
+            print("Numeros positivos o 0")
         else:
             return dato
 def mostrar_menu():
