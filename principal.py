@@ -16,13 +16,15 @@ def leer(texto, tipo):
             print("Numeros positivos o 0")
         else:
             return dato
+        
 def mostrar_menu():
     """Muestra por pantalla las opciones disponibles."""
-    print("\n===== CALCULADORA GEOMETRICA =====")
+    print("===== CALCULADORA GEOMETRICA =====")
     print("1. Calcular area de un rectangulo")
     print("2. Calcular area de un cuadrado")
     print("3. Calcular area de un circulo")
     print("0. Salir")
+    
 def main():
     """Controla el flujo principal de la aplicacion."""
     # El menu se repite mientras no se elija la opcion 0.
